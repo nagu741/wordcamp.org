@@ -12,13 +12,7 @@ import { __ } from '@wordpress/i18n';
 /**
  * Internal dependencies
  */
-import {
-	DangerousItemHTMLContent,
-	FeaturedImage,
-	ItemTitle,
-	NoContent,
-	PostList,
-} from '../../components';
+import { DangerousItemHTMLContent, FeaturedImage, ItemTitle, NoContent, PostList } from '../../components';
 import { filterEntities } from '../../data';
 import { arrayTokenReplace, intersperse, listify, tokenSplit } from '../../i18n';
 
@@ -221,13 +215,19 @@ class SessionList extends Component {
 						{ 'none' !== content && (
 							<DangerousItemHTMLContent
 								className={ `wordcamp-sessions__content is-${ content }` }
-								content={ 'full' === content ? post.content.rendered.trim() : post.excerpt.rendered.trim() }
+								content={
+									'full' === content
+										? post.content.rendered.trim()
+										: post.excerpt.rendered.trim()
+								}
 							/>
 						) }
 
 						{ ( show_meta || show_category ) && (
 							<div className="wordcamp-sessions__details">
-								{ show_meta && <div className="wordcamp-sessions__time-location">{ post.details }</div> }
+								{ show_meta && (
+									<div className="wordcamp-sessions__time-location">{ post.details }</div>
+								) }
 								{ show_category && <SessionCategory session={ post } /> }
 							</div>
 						) }

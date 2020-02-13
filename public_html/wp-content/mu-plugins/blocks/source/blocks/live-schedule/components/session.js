@@ -30,16 +30,14 @@ export default function( { headingLevel = 3, session, track } ) {
 	return (
 		<div className={ `wordcamp-live-schedule__session type-${ type }` }>
 			{ !! track.slug && (
-				<span className={ `wordcamp-live-schedule__session-track track-${ track.slug }` }>{ track.name }</span>
+				<span className={ `wordcamp-live-schedule__session-track track-${ track.slug }` }>
+					{ track.name }
+				</span>
 			) }
 
 			<div className="wordcamp-live-schedule__session-details">
 				<Heading className="wordcamp-live-schedule__session-title">
-					{ !! link ? (
-						<a href={ link }>{ cleanTitle }</a>
-					) : (
-						cleanTitle
-					) }
+					{ !! link ? <a href={ link }>{ cleanTitle }</a> : cleanTitle }
 				</Heading>
 
 				<span className="wordcamp-live-schedule__session-time">{ time }</span>
@@ -53,9 +51,7 @@ export default function( { headingLevel = 3, session, track } ) {
 						) ) }
 				</span>
 
-				<span className="wordcamp-live-schedule__session-cats">
-					{ categories }
-				</span>
+				<span className="wordcamp-live-schedule__session-cats">{ categories }</span>
 			</div>
 		</div>
 	);

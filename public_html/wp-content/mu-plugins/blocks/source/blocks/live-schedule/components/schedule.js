@@ -11,7 +11,7 @@ import Session from './session';
 
 export default function( { attributes, isFetching, sessions } ) {
 	// A session track is "running" if there is a talk either now or next.
-	const runningSessions = sessions.filter( ( session ) => ( !! session.now || !! session.next ) );
+	const runningSessions = sessions.filter( ( session ) => !! session.now || !! session.next );
 
 	if ( ! isFetching && ! runningSessions.length ) {
 		return <p>{ __( 'No WordCamp events are scheduled today :(', 'wordcamporg' ) }</p>;
@@ -29,9 +29,7 @@ export default function( { attributes, isFetching, sessions } ) {
 
 	return (
 		<Fragment>
-			{ hasNow && (
-				<Heading className="wordcamp-live-schedule__title">{ attributes.now }</Heading>
-			) }
+			{ hasNow && <Heading className="wordcamp-live-schedule__title">{ attributes.now }</Heading> }
 
 			{ sessions.map( ( trackPair, index ) => {
 				const session = trackPair.now;
@@ -48,9 +46,7 @@ export default function( { attributes, isFetching, sessions } ) {
 				);
 			} ) }
 
-			{ hasNext && (
-				<Heading className="wordcamp-live-schedule__title">{ attributes.next }</Heading>
-			) }
+			{ hasNext && <Heading className="wordcamp-live-schedule__title">{ attributes.next }</Heading> }
 
 			{ sessions.map( ( trackPair, index ) => {
 				const session = trackPair.next;
@@ -66,7 +62,6 @@ export default function( { attributes, isFetching, sessions } ) {
 					/>
 				);
 			} ) }
-
 		</Fragment>
 	);
 }

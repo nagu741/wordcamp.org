@@ -29,11 +29,7 @@ export function Option( { avatar, context, count, details, icon, label } ) {
 	let image;
 
 	if ( 'value' === context ) {
-		return (
-			<div className="wordcamp-item-select__token">
-				{ label }
-			</div>
-		);
+		return <div className="wordcamp-item-select__token">{ label }</div>;
 	}
 
 	if ( avatar ) {
@@ -48,11 +44,7 @@ export function Option( { avatar, context, count, details, icon, label } ) {
 	} else if ( icon ) {
 		image = (
 			<div className="wordcamp-item-select__option-icon-container">
-				<Dashicon
-					className="wordcamp-item-select__option-icon"
-					icon={ icon }
-					size={ 16 }
-				/>
+				<Dashicon className="wordcamp-item-select__option-icon" icon={ icon } size={ 16 } />
 			</div>
 		);
 	}
@@ -63,14 +55,10 @@ export function Option( { avatar, context, count, details, icon, label } ) {
 			<span className="wordcamp-item-select__option-label">
 				{ label }
 				{ 'undefined' !== typeof count && (
-					<span className="wordcamp-item-select__option-label-count">
-						{ count }
-					</span>
+					<span className="wordcamp-item-select__option-label-count">{ count }</span>
 				) }
 				{ 'undefined' !== typeof details && (
-					<span className="wordcamp-item-select__option-label-details">
-						{ details }
-					</span>
+					<span className="wordcamp-item-select__option-label-details">{ details }</span>
 				) }
 			</span>
 		</div>

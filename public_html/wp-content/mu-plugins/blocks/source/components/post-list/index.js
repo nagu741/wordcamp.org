@@ -28,12 +28,7 @@ class PostList extends Component {
 		const { attributes, className, children = [] } = this.props;
 		const { align, grid_columns, layout } = attributes;
 
-		const containerClasses = [
-			'wordcamp-block',
-			'wordcamp-post-list',
-			'has-layout-' + layout,
-			className,
-		];
+		const containerClasses = [ 'wordcamp-block', 'wordcamp-post-list', 'has-layout-' + layout, className ];
 
 		if ( 'grid' === layout ) {
 			containerClasses.push( 'has-grid-columns-' + Number( grid_columns ) );
@@ -45,14 +40,14 @@ class PostList extends Component {
 
 		return (
 			<ul className={ classnames( containerClasses ) }>
-				{ ( children ).map( ( childComponent ) =>
+				{ children.map( ( childComponent ) => (
 					<li
 						key={ childComponent.key }
 						className={ classnames( 'wordcamp-post-list__post', 'wordcamp-clearfix' ) }
 					>
 						{ childComponent }
 					</li>
-				) }
+				) ) }
 			</ul>
 		);
 	}

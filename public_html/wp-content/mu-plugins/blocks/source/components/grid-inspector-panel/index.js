@@ -20,19 +20,12 @@ import { __ } from '@wordpress/i18n';
  */
 function GridInspectorPanel( { attributes, blockData, setAttributes } ) {
 	const { grid_columns, layout } = attributes;
-	const {
-		default: defaultValue = 2,
-		maximum = 4,
-		minimum = 4,
-	} = get( blockData, 'schema.grid_columns', {} );
+	const { default: defaultValue = 2, maximum = 4, minimum = 4 } = get( blockData, 'schema.grid_columns', {} );
 
 	return (
 		<Fragment>
-			{ 'grid' === layout &&
-				<PanelBody
-					title={ __( 'Grid Layout', 'wordcamporg' ) }
-					initialOpen={ true }
-				>
+			{ 'grid' === layout && (
+				<PanelBody title={ __( 'Grid Layout', 'wordcamporg' ) } initialOpen={ true }>
 					<RangeControl
 						label={ __( 'Grid Columns', 'wordcamporg' ) }
 						value={ Number( grid_columns ) }
@@ -42,7 +35,7 @@ function GridInspectorPanel( { attributes, blockData, setAttributes } ) {
 						onChange={ ( value ) => setAttributes( { grid_columns: value } ) }
 					/>
 				</PanelBody>
-			}
+			) }
 		</Fragment>
 	);
 }

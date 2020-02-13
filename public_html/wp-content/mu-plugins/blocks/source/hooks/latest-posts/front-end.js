@@ -37,7 +37,7 @@ class LivePosts extends Component {
 			<ServerSideRender
 				block="core/latest-posts"
 				attributes={ attributes }
-				LoadingResponsePlaceholder={ () => ( <p>{ __( 'Loading', 'wordcamporg' ) }</p> ) }
+				LoadingResponsePlaceholder={ () => <p>{ __( 'Loading', 'wordcamporg' ) }</p> }
 			/>
 		);
 	}

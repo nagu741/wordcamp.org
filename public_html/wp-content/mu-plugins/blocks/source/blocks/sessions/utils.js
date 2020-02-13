@@ -22,7 +22,7 @@ import { arrayTokenReplace, tokenSplit } from '../../i18n';
  * @return {Array}
  */
 export function getSessionDetails( session ) {
-	const terms = get( session, '_embedded[\'wp:term\']', [] ).flat();
+	const terms = get( session, "_embedded['wp:term']", [] ).flat();
 
 	if ( session.session_track.length ) {
 		const [ firstTrack ] = terms.filter( ( term ) => 'wcb_track' === term.taxonomy );
@@ -30,20 +30,13 @@ export function getSessionDetails( session ) {
 		return arrayTokenReplace(
 			/* translators: 1: A date; 2: A time; 3: A location; */
 			tokenSplit( __( '%1$s at %2$s in %3$s', 'wordcamporg' ) ),
-			[
-				session.session_date_time.date,
-				session.session_date_time.time,
-				firstTrack.name.trim(),
-			]
+			[ session.session_date_time.date, session.session_date_time.time, firstTrack.name.trim() ]
 		);
 	}
 
 	return arrayTokenReplace(
 		/* translators: 1: A date; 2: A time; */
 		tokenSplit( __( '%1$s at %2$s', 'wordcamporg' ) ),
-		[
-			session.session_date_time.date,
-			session.session_date_time.time,
-		]
+		[ session.session_date_time.date, session.session_date_time.time ]
 	);
 }

@@ -12,13 +12,7 @@ import { Component } from '@wordpress/element';
 /**
  * Internal dependencies
  */
-import {
-	DangerousItemHTMLContent,
-	FeaturedImage,
-	ItemTitle,
-	NoContent,
-	PostList,
-} from '../../components';
+import { DangerousItemHTMLContent, FeaturedImage, ItemTitle, NoContent, PostList } from '../../components';
 import { filterEntities } from '../../data';
 
 /**
@@ -82,7 +76,10 @@ class SponsorList extends Component {
 		return (
 			<PostList attributes={ attributes } className="wordcamp-sponsors">
 				{ posts.map( ( post ) => (
-					<div key={ post.slug } className={ classnames( 'wordcamp-sponsors__post', `slug-${ post.slug }` ) }>
+					<div
+						key={ post.slug }
+						className={ classnames( 'wordcamp-sponsors__post', `slug-${ post.slug }` ) }
+					>
 						{ show_name && (
 							<ItemTitle
 								className="wordcamp-sponsors__title"
@@ -109,7 +106,11 @@ class SponsorList extends Component {
 						{ 'none' !== content && (
 							<DangerousItemHTMLContent
 								className={ `wordcamp-sponsors__content is-${ content }` }
-								content={ 'full' === content ? post.content.rendered.trim() : post.excerpt.rendered.trim() }
+								content={
+									'full' === content
+										? post.content.rendered.trim()
+										: post.excerpt.rendered.trim()
+								}
 							/>
 						) }
 					</div>

@@ -13,11 +13,7 @@ const withLiveReloadOption = createHigherOrderComponent( ( BlockEdit ) => {
 			return <BlockEdit { ...props } />;
 		}
 
-		const {
-			liveUpdateEnabled,
-			order,
-			orderBy,
-		} = props.attributes;
+		const { liveUpdateEnabled, order, orderBy } = props.attributes;
 
 		const orderDateDesc = 'desc' === order && 'date' === orderBy;
 		const orderWarning = __( 'Live update only works with "Order by: Newest to Oldest".', 'wordcamporg' );
@@ -26,11 +22,13 @@ const withLiveReloadOption = createHigherOrderComponent( ( BlockEdit ) => {
 			<Fragment>
 				<BlockEdit { ...props } />
 				<InspectorControls>
-					<PanelBody
-						title={ __( 'Live Updates', 'wordcamporg' ) }
-						initialOpen={ true }
-					>
-						<p>{ __( "This feature helps your attendees keep up-to-date with your WordCamp's latest news. When active, new posts will be loaded as they're published without your attendees needing to refresh the page.", 'wordcamporg' ) }</p>
+					<PanelBody title={ __( 'Live Updates', 'wordcamporg' ) } initialOpen={ true }>
+						<p>
+							{ __(
+								"This feature helps your attendees keep up-to-date with your WordCamp's latest news. When active, new posts will be loaded as they're published without your attendees needing to refresh the page.",
+								'wordcamporg'
+							) }
+						</p>
 						{ orderDateDesc ? (
 							<ToggleControl
 								label={ __( 'Live update posts', 'wordcamporg' ) }

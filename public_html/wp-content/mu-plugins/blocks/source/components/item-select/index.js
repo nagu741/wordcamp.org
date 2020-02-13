@@ -111,11 +111,7 @@ export class ItemSelect extends Component {
 	 * @return {Element}
 	 */
 	static formatGroupLabel( groupData ) {
-		return (
-			<span className="wordcamp-item-select__option-group-label">
-				{ groupData.label }
-			</span>
-		);
+		return <span className="wordcamp-item-select__option-group-label">{ groupData.label }</span>;
 	}
 
 	/**

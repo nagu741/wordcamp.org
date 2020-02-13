@@ -6,13 +6,7 @@ import { Component } from '@wordpress/element';
 /**
  * Internal dependencies
  */
-import {
-	AvatarImage,
-	DangerousItemHTMLContent,
-	ItemTitle,
-	NoContent,
-	PostList,
-} from '../../components';
+import { AvatarImage, DangerousItemHTMLContent, ItemTitle, NoContent, PostList } from '../../components';
 import { filterEntities } from '../../data';
 
 /**
@@ -97,7 +91,11 @@ class OrganizerList extends Component {
 						{ 'none' !== content && (
 							<DangerousItemHTMLContent
 								className={ `wordcamp-organizers__content is-${ content }` }
-								content={ 'full' === content ? post.content.rendered.trim() : post.excerpt.rendered.trim() }
+								content={
+									'full' === content
+										? post.content.rendered.trim()
+										: post.excerpt.rendered.trim()
+								}
 							/>
 						) }
 					</div>

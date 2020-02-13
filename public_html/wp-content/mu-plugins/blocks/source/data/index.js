@@ -169,11 +169,9 @@ const reducer = ( state = DEFAULT_STATE, action ) => {
 				break;
 			}
 
-			apiFetch( { path: '/wp/v2/settings' } ).then(
-				( fetchedSettings ) => {
-					dispatch( WC_BLOCKS_STORE ).setSiteSettings( fetchedSettings );
-				}
-			);
+			apiFetch( { path: '/wp/v2/settings' } ).then( ( fetchedSettings ) => {
+				dispatch( WC_BLOCKS_STORE ).setSiteSettings( fetchedSettings );
+			} );
 
 			state.loadingSettings = true;
 			break;

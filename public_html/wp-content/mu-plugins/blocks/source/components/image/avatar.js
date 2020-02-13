@@ -84,11 +84,7 @@ export function AvatarImage( { className, name, size, url, imageLink } ) {
 		);
 	}
 
-	image = (
-		<div className={ classnames( 'wordcamp-image__avatar-container', className ) }>
-			{ image }
-		</div>
-	);
+	image = <div className={ classnames( 'wordcamp-image__avatar-container', className ) }>{ image }</div>;
 
 	return image;
 }

@@ -74,10 +74,6 @@ export const SETTINGS = {
 		</Fragment>
 	),
 	save: ( { attributes } ) => (
-		<div
-			data-now={ attributes.now }
-			data-next={ attributes.next }
-			data-level={ attributes.level }
-		/>
+		<div data-now={ attributes.now } data-next={ attributes.next } data-level={ attributes.level } />
 	),
 };

@@ -46,7 +46,9 @@ describe( 'getCurrentSessions', () => {
 		expect( titles[ 1 ] ).toEqual( 'open-source-open-process-open-web' );
 		expect( titles[ 2 ] ).toEqual( 'how-to-perform-a-quality-ux-audit-on-a-budget' );
 		expect( titles[ 3 ] ).toEqual( 'contributing-to-core-no-coding-necessary' );
-		expect( titles[ 4 ] ).toEqual( 'align-seo-efforts-with-your-target-market-and-todays-search-learn-how-to-perform-keyword-research-and-map-them-to-content' );
+		expect( titles[ 4 ] ).toEqual(
+			'align-seo-efforts-with-your-target-market-and-todays-search-learn-how-to-perform-keyword-research-and-map-them-to-content'
+		);
 		expect( titles[ 5 ] ).toEqual( 'automating-your-qa-with-visual-regression-testing' );
 	} );
 

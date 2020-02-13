@@ -22,7 +22,8 @@ const makeSession = ( name, time ) => ( {
 				id: 1,
 				title: { rendered: _x( 'Speaker Name', 'A fake speaker name', 'wordcamporg' ) },
 				link: '#',
-			}, {
+			},
+			{
 				id: 2,
 				title: { rendered: _x( 'Speaker Name', 'A fake speaker name', 'wordcamporg' ) },
 				link: '#',

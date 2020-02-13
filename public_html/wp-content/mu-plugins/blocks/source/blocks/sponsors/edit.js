@@ -35,19 +35,15 @@ class Edit extends Component {
 		let output;
 
 		switch ( mode ) {
-			case 'all' :
-				output = (
-					<SponsorList attributes={ attributes } entities={ entities } />
-				);
+			case 'all':
+				output = <SponsorList attributes={ attributes } entities={ entities } />;
 				break;
 
-			case 'wcb_sponsor' :
-			case 'wcb_sponsor_level' :
+			case 'wcb_sponsor':
+			case 'wcb_sponsor_level':
 				output = (
 					<EditAppender
-						content={
-							<SponsorList attributes={ attributes } entities={ entities } />
-						}
+						content={ <SponsorList attributes={ attributes } entities={ entities } /> }
 						appender={
 							isSelected && (
 								<SponsorSelect
@@ -63,13 +59,9 @@ class Edit extends Component {
 				);
 				break;
 
-			default :
+			default:
 				output = (
-					<Placeholder
-						className="wordcamp__edit-placeholder has-no-mode"
-						icon={ ICON }
-						label={ LABEL }
-					>
+					<Placeholder className="wordcamp__edit-placeholder has-no-mode" icon={ ICON } label={ LABEL }>
 						<div className="wordcamp__edit-mode-option">
 							<Button
 								isSecondary

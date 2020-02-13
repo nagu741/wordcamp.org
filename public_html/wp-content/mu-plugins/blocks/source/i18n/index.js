@@ -99,16 +99,14 @@ export function intersperse( array, separator ) {
 		return [];
 	}
 
-	return array
-		.slice( 1 )
-		.reduce(
-			( accumulator, curValue, curIndex ) => {
-				const sep = ( typeof separator === 'function' ) ? sep( curIndex ) : separator;
+	return array.slice( 1 ).reduce(
+		( accumulator, curValue, curIndex ) => {
+			const sep = typeof separator === 'function' ? sep( curIndex ) : separator;
 
-				return accumulator.concat( [ sep, curValue ] );
-			},
-			[ array[ 0 ] ]
-		);
+			return accumulator.concat( [ sep, curValue ] );
+		},
+		[ array[ 0 ] ]
+	);
 }
 
 /**

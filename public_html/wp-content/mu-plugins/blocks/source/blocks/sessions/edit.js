@@ -36,20 +36,16 @@ class Edit extends Component {
 		let output;
 
 		switch ( mode ) {
-			case 'all' :
-				output = (
-					<SessionList attributes={ attributes } entities={ entities } />
-				);
+			case 'all':
+				output = <SessionList attributes={ attributes } entities={ entities } />;
 				break;
 
-			case 'wcb_session' :
-			case 'wcb_track' :
-			case 'wcb_session_category' :
+			case 'wcb_session':
+			case 'wcb_track':
+			case 'wcb_session_category':
 				output = (
 					<EditAppender
-						content={
-							<SessionList attributes={ attributes } entities={ entities } />
-						}
+						content={ <SessionList attributes={ attributes } entities={ entities } /> }
 						appender={
 							isSelected && (
 								<SessionSelect
@@ -65,13 +61,9 @@ class Edit extends Component {
 				);
 				break;
 
-			default :
+			default:
 				output = (
-					<Placeholder
-						className="wordcamp__edit-placeholder has-no-mode"
-						icon={ ICON }
-						label={ LABEL }
-					>
+					<Placeholder className="wordcamp__edit-placeholder has-no-mode" icon={ ICON } label={ LABEL }>
 						<div className="wordcamp__edit-mode-option">
 							<Button
 								isSecondary

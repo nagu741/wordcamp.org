@@ -30,11 +30,7 @@ function EditAppender( { className, content, appender } ) {
 	return (
 		<Fragment>
 			{ content }
-			{ appender && (
-				<div className={ classnames( classes ) }>
-					{ appender }
-				</div>
-			) }
+			{ appender && <div className={ classnames( classes ) }>{ appender }</div> }
 		</Fragment>
 	);
 }

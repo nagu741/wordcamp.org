@@ -155,9 +155,7 @@ export class FeaturedImage extends Component {
 		}
 
 		output = (
-			<div className={ classnames( 'wordcamp-image__featured-image-container', className ) }>
-				{ output }
-			</div>
+			<div className={ classnames( 'wordcamp-image__featured-image-container', className ) }>{ output }</div>
 		);
 
 		return output;

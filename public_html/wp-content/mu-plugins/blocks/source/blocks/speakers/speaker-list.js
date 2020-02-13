@@ -12,13 +12,7 @@ import { Component } from '@wordpress/element';
 /**
  * Internal dependencies
  */
-import {
-	AvatarImage,
-	DangerousItemHTMLContent,
-	ItemTitle,
-	NoContent,
-	PostList,
-} from '../../components';
+import { AvatarImage, DangerousItemHTMLContent, ItemTitle, NoContent, PostList } from '../../components';
 import { filterEntities } from '../../data';
 import { arrayTokenReplace, tokenSplit } from '../../i18n';
 
@@ -59,25 +53,25 @@ function SpeakerSessions( { speaker, tracks } ) {
 						<span className="wordcamp-speakers__session-info">
 							{ session.session_track.length && Array.isArray( tracks )
 								? arrayTokenReplace(
-									/* translators: 1: A date; 2: A time; 3: A location; */
-									tokenSplit( __( '%1$s at %2$s in %3$s', 'wordcamporg' ) ),
-									[
-										session.session_date_time.date,
-										session.session_date_time.time,
-										get(
-											tracks.find( ( value ) => {
-												const [ firstTrackId ] = session.session_track;
-												return parseInt( value.id ) === firstTrackId;
-											} ),
-											'name'
-										),
-									]
-								)
+										/* translators: 1: A date; 2: A time; 3: A location; */
+										tokenSplit( __( '%1$s at %2$s in %3$s', 'wordcamporg' ) ),
+										[
+											session.session_date_time.date,
+											session.session_date_time.time,
+											get(
+												tracks.find( ( value ) => {
+													const [ firstTrackId ] = session.session_track;
+													return parseInt( value.id ) === firstTrackId;
+												} ),
+												'name'
+											),
+										]
+								  )
 								: arrayTokenReplace(
-									/* translators: 1: A date; 2: A time; */
-									tokenSplit( __( '%1$s at %2$s', 'wordcamporg' ) ),
-									[ session.session_date_time.date, session.session_date_time.time ]
-								) }
+										/* translators: 1: A date; 2: A time; */
+										tokenSplit( __( '%1$s at %2$s', 'wordcamporg' ) ),
+										[ session.session_date_time.date, session.session_date_time.time ]
+								  ) }
 						</span>
 					</li>
 				) ) }
@@ -170,7 +164,11 @@ class SpeakerList extends Component {
 						{ 'none' !== content && (
 							<DangerousItemHTMLContent
 								className={ `wordcamp-speakers__content is-${ content }` }
-								content={ 'full' === content ? post.content.rendered.trim() : post.excerpt.rendered.trim() }
+								content={
+									'full' === content
+										? post.content.rendered.trim()
+										: post.excerpt.rendered.trim()
+								}
 							/>
 						) }
 
