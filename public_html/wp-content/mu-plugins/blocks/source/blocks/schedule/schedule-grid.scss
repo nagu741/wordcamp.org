@@ -1,0 +1,98 @@
+$color__grid-border: #e0e5e9;
+// need to get exact colors from mel, for this and other colors
+// also setup vars for other colors
+// use convention from gutenberg if one is documented in future:
+// 		https://github.com/WordPress/gutenberg/issues/19352
+
+/*
+ * todo
+ *
+ * time column is wider than track columns, but it should be equal or maybe a bit smaller
+ */
+
+@mixin breakpoint-grid-layout() {
+	.wordcamp-schedule:not( .is-style-single-column-layout ) & {
+		@supports ( display: grid ) {
+			body:not( .block-editor-page ) & {
+				@media screen and (min-width: 550px) {
+					@content;
+				}
+			}
+
+			/*
+			 * The editor area is very narrow because of `#adminmenu` and `.edit-post-sidebar`, so this needs to be
+			 * unusually high.
+			 */
+			body.block-editor-page & {
+				@media screen and (min-width: 1025px) {
+					@content;
+				}
+			}
+		}
+	}
+
+
+	/*
+	// might need to adjust that breakpoint when test with real sites, because session titles will often be longer
+	// 		probably better to make sample data have longer names, and then update tests/sample-sessions.xml
+	*/
+}
+
+.wp-block[data-type="wordcamp/schedule"] .editor-block-list__block-edit {
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+.wordcamp-schedule__day {
+	background-color: #fbfbfc;
+
+	@include breakpoint-grid-layout {
+		display: grid;
+		grid-gap: 1px;
+	}
+}
+
+.wordcamp-schedule__date {
+	.editor-styles-wrapper & {
+		margin-bottom: 0;
+	}
+
+	&::before {
+		.editor-styles-wrapper & {
+			content: none;
+		}
+	}
+}
+
+.wordcamp-schedule__column-header {
+	display: none;
+	background-color: #fff;
+	font-weight: 700;
+	font-size: 0.75em;
+	text-align: center;
+
+	/* Keep the headers visible so the user always knows which column they're looking at. */
+	// todo-grid when multiple blocks on page in back end, this doesn't work
+		// maybe related to https://make.wordpress.org/community/2018/10/26/wordcamp-block-schedule/#comment-26815
+		// doesn't work on front end regardless of # of blocks.
+	@include breakpoint-grid-layout {
+		display: block;
+		position: sticky;
+			// todo this is no longer working as of d313a302. bisect to find what broke it
+				// or maybe it's working but just hidden behind `div.edit-post-header-toolbar__block-toolbar` ?
+		top: 0; /* Remove the gap above in Firefox and maybe other browsers. */
+		z-index: 10;
+		grid-row: tracks;
+
+		/*
+		 * Overflow the grid-gap so that the `background-color` from `.wordcamp-schedule-day` doesn't show through
+		 * and create pseudo-borders.
+		 */
+		margin: 0 -1px 0 -1px;
+		padding: 10px 5px 5px;
+		background-color: rgba(251, 251, 252, 0.92);	/* Same as $color__grid-border, but with opacity */
+
+		/* todo-grid maybe need to switch back to ::after and then use z-index?
+		see https://make.wordpress.org/community/2018/10/26/wordcamp-block-schedule/#comment-26821 */
+	}
+}

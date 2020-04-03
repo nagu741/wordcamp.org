@@ -1,0 +1,41 @@
+/*
+ * todo-front
+ *
+ * does this file get bundled into blocks.min.css? if so, that could mess up the order b/c it might be
+ * re-including these after edit.scss does.
+ * 		maybe need to exclude front-end.scss, or just only include edit.scss
+ *
+ * differences between different themes
+ *		note: these aren't necessarily specific to front-end, need to test both sides, and make tweaks in place that will fix both
+ *		need to test mobile and grid layout
+ *
+ *		2015 - cell heights aren't maximzed on front end, maybe back. was fixed last week, maybe that was specific to campsite theme and now need to make that more general?
+ *		2019 - warning text really big
+ *		2017 - warning no padding
+ *		2016 - session contents line height, fonts in general too big no line height
+ *		2016 - mobile breakpoint does't make sense on frontend. showing mobile even at 1149px. todo-beta
+ *				iirc, i made it that high to fix something, so making it smaller might regress. check other notes around mobile breakpoints
+ *				might help to have different breakpoints in the editor, BUT the experience should be consistent between both, right?
+ *					maybe that problem is just inherent to gutenberg, but not realized in most situations, so there's no real solution for it, and people just accept it?
+
+ *					also consider content overflows w/ 6 tracks in the editor
+ 					track header overflows in the frontend
+
+ 					js knows how many tracks are being used, so maybe have js set the breakpoint dynamically - yeah that sounds good.
+ 						ugh but it's a mixin, so how do you do that? need to just make it a class instead?
+ 						well no because have to wrap contents
+ 						dont wanna dynamically set all styles inside it. maybe just set the value to a placeholder like `### DYNAMIC-BREAKPOINT ###` and then use JS to replace that within the stylesheet?
+ 						that's super hacky
+ 						oh, maybe have js set something like `data-number-tracks="6"` and then have css parse that?
+ 							but would have to be vanilla css b/c needs to happen at runtime. would that require css variables? probably not supported enough yet
+ *
+ *		campsite - full width doesn't work, maybe other themes too. todo-beta
+ *			not relaly doing wide or full even in 2019. need to make the grid container expand?
+
+
+
+ */
+
+@import "schedule-grid";
+@import "sessions";
+@import "session";

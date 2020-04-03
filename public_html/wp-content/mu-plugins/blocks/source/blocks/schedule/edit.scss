@@ -1,0 +1,15 @@
+/*
+ * todo-grid
+ *
+ * 4+ tracks overflows G's content area, 3+ probably does on smaller screens.
+ *		not sure how to fix that, ask mel et al if any ideas
+ *		could just let it use the mobile view, but organizers might think the new block is just the mobile view,
+ *		and not realize it's really a grid on larger screens
+ *
+ * review unmarked to-do notes in individual files
+ */
+
+@import "schedule-grid";
+@import "sessions";
+@import "session";
+@import "inspector-controls";
