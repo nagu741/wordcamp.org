@@ -23,6 +23,8 @@ const rawScheduleData = window.WordCampBlocks.schedule || {};
  maybe send a PR now for the pre-requesite commits, or just all the commits that _arent_ the main commit.
 	 that'd split review it into smaller chunks, and get some stuff in now
 	 make sure it's behind feature flag
+	 todo update core and gutenberg plugin first, b/c __experiementblah changed?
+	       if that doesn't fix it, maybe i need to add something to the package.json dependencies manually?
  then clean up any todo-beta problems that are important
  then clean up any quick and easy todo things anywhere in block that would hold up review
  then lint php and js
@@ -38,6 +40,30 @@ const rawScheduleData = window.WordCampBlocks.schedule || {};
     especially want feedback around customizing w/ css
     xpost to meta p2
  *
+ */
+
+/*
+WARNING in asset size limit: The following asset(s) exceed the recommended size limit (244 KiB).
+This can impact web performance.
+Assets:
+  blocks.min.js (371 KiB)
+  schedule-front-end.min.js (327 KiB)
+
+  WARNING in entrypoint size limit: The following entrypoint(s) combined asset size exceeds the recommended limit (244 KiB). This can impact web performance.
+Entrypoints:
+  blocks (384 KiB)
+      blocks.min.css
+      blocks.min.js
+      blocks.min.asset.php
+  schedule-front-end (345 KiB)
+      schedule-front-end.min.css
+      schedule-front-end.min.js
+      schedule-front-end.min.asset.php
+
+
+WARNING in webpack performance recommendations:
+You can limit the size of your bundles by using import() or require.ensure to lazy load some parts of your application.
+For more info visit https://webpack.js.org/guides/code-splitting/
  */
 
 import { ScheduleGrid } from './schedule-grid';
