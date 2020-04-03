@@ -25,6 +25,7 @@ jobs:
       script:
         # Run eslint & stylelint over all JS/SCSS files
         # @todo Find a way to only run on changed files
+        # @todo discuss making build only fail on tests, not linting. or at least only on linting rules that cause bugs, not nitpicky whitespace etc
         - yarn workspace wordcamp-blocks run lint:js --config=./.eslintrc.js --quiet
         - yarn workspace wordcamp-blocks run lint:css
         # Make sure the build completes.
