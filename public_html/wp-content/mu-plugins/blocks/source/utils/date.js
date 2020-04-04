@@ -3,7 +3,8 @@
  *
  * @todo This file can be removed when https://github.com/WordPress/gutenberg/pull/18982 is merged.
  *
- * @todo-front this is causing moment-timezone to get bundled in schedule-front-end build instead of referencing external
+ * @todo-front this is causing moment-timezone to get bundled in schedule-front-end build instead of referencing
+ * external.
  */
 
 /**

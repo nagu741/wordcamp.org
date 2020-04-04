@@ -20,11 +20,10 @@ const rawScheduleData = window.WordCampBlocks.schedule || {};
 
 /*
  todo-beta
- maybe send a PR now for the pre-requesite commits, or just all the commits that _arent_ the main commit.
+ send a PR now for the pre-requesite commits
 	 that'd split review it into smaller chunks, and get some stuff in now
-	 make sure it's behind feature flag
-	 todo update core and gutenberg plugin first, b/c __experiementblah changed?
-	       if that doesn't fix it, maybe i need to add something to the package.json dependencies manually?
+	 lint first
+
  then clean up any todo-beta problems that are important
  then clean up any quick and easy todo things anywhere in block that would hold up review
  then lint php and js

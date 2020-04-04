@@ -81,8 +81,13 @@ import { ScheduleGridContext, implicitTrack, sortBySlug } from './edit';
  *
  *      wcus
  *
- *      http://2019.europe.wordcamp.org/schedule - matt's session spans some but not all tracks - should be fine b/c alphabetical
+ *      https://2019.europe.wordcamp.org/wp-admin/post.php?post=14070&action=edit
+ *          in shortode matt's session spans some but not all tracks - should be fine b/c alphabetical
+ *
  *      boston
+ *
+ *      https://2017.testing.wordcamp.org/wp-admin/post.php?post=13245&action=edit
+ *          data here isn't might be imported from diff camps, and mixed w/ fake, so maybe not worth testing?
  *
  *      miami
  *      tokyo
@@ -103,6 +108,8 @@ import { ScheduleGridContext, implicitTrack, sortBySlug } from './edit';
  *      reference the original for historical tracking
  *
  * remove _tmp_dateI18n if https://github.com/WordPress/gutenberg/pull/18982 is merged, but make sure we're running that version before deploy
+ *
+ * gutenberg's built-in "tablet" and "mobile" doesn't recognize the breakpoints
  */
 
 /**

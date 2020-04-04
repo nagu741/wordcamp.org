@@ -39,12 +39,16 @@ function load_includes() {
 	require_once $blocks_dir . 'sponsors/controller.php';
 	require_once $blocks_dir . 'live-schedule/controller.php';
 
-	$full_schedule_test_sites = array(
+	$beta_block_test_sites = array(
 		928, // 2017.testing
 	);
 
-	// todo change based on https://github.com/WordPress/wordcamp.org/pull/371/
-	if ( 'development' === WORDCAMP_ENVIRONMENT || in_array( get_current_blog_id(), $full_schedule_test_sites, true ) ) {
+	$load_beta_blocks =
+		'local'       === WORDCAMP_ENVIRONMENT ||
+		'development' === WORDCAMP_ENVIRONMENT ||
+		in_array( get_current_blog_id(), $beta_block_test_sites, true );
+
+	if ( $load_beta_blocks ) {
 		require_once $blocks_dir . 'schedule/controller.php';
 	}
 

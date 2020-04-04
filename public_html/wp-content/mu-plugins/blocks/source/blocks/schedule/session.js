@@ -9,8 +9,7 @@ import { isEqual } from 'lodash';
  * WordPress dependencies
  */
 import { __ } from '@wordpress/i18n';
-import { __experimentalCreateInterpolateElement, useContext } from '@wordpress/element';
-	// todo should be stable in 7.7.2, so switch soon. also update any other uses, like render-frontend
+import { createInterpolateElement, useContext } from '@wordpress/element';
 
 /**
  * Import dependencies
@@ -254,7 +253,7 @@ function renderCategories( categories ) {
  * @return {Element}
  */
 function renderWarnings( spansNonContiguousTracks, overlapsAnother ) {
-	const pleaseRenameSlugs = __experimentalCreateInterpolateElement(
+	const pleaseRenameSlugs = createInterpolateElement(
 		__( "Warning: Sessions can't span non-contiguous tracks in the grid layout. Please <a>rename the track slugs</a> so that the tracks you want to appear next to each other are sorted alphabetically.", 'wordcamporg' ),
 		{
 			a: <a href={ '/wp-admin/edit-tags.php?taxonomy=wcb_track&post_type=wcb_session' } />,
