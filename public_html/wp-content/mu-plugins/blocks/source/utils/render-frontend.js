@@ -92,6 +92,10 @@ export default ( selector, Block, getProps = getPropsFallback ) => {
 				/>,
 				element
 			);
+
+			// todo-front why pulling render() from react-dom instead of @wordpress/element ?
+			// make sure that react-dom, lodash, etc aren't getting bundled into the build, should be using from core versions as external instead
+				// seems lke they're being bundled live-schedule.min.js
 		} );
 	}
 };
