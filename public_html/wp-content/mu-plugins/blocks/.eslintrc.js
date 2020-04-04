@@ -131,5 +131,11 @@ module.exports = {
 		 * @todo `@param` tags should align the variable name and description, just like in PHP.
 		 */
 		'jsdoc/require-returns-description': 'off',
+
+		/*
+		 * This has false positives with every translated string, due to the way `createInterpolateElement()`
+		 * is designed.
+		 */
+		'jsx-a11y/anchor-has-content': 'off',
 	},
 };
